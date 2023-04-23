@@ -38,7 +38,7 @@ const LoginForm = () => {
             <Input.Password />
          </Form.Item>
          <Form.Item>
-            <Button type="primary" htmlType="submit" className='.box_shadow_fix'>
+            <Button type="primary" htmlType="submit" className='box_shadow_fix'>
                SIGN IN
             </Button>
          </Form.Item>

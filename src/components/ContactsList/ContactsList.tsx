@@ -139,7 +139,7 @@ const ContactsList = () => {
                )
          },
       },
-   ]), []);
+   ]), [isEditing]);
 
    // мержим необходимые данные для редактирования внутри таблицы (согласно доке Ant Design)
 
@@ -157,7 +157,7 @@ const ContactsList = () => {
             editing: isEditing(record),
          }),
       };
-   }), [columns]);
+   }), [columns, isEditing])
 
    // Функционал для Actions
 
