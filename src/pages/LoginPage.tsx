@@ -1,6 +1,6 @@
 import React from 'react'
 import { Layout } from 'antd';
-import LoginForm from '../components/LoginForm';
+import LoginForm from '../components/LoginForm/LoginForm';
 import { Typography } from 'antd';
 
 const { Content } = Layout;

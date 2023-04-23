@@ -8,7 +8,8 @@ import { DataType } from './DataType';
 import { EditableCell } from './EditableCell';
 import { contactsSorter } from '../../utils/contactsSorter';
 import { deleteContact, editContact } from '../../redux/reducers/contactsReducer';
-import AddContact from '../AddContact';
+import AddContact from '../AddContact/AddContact';
+import './contactsList.css'
 
 const { Text } = Typography
 
@@ -20,6 +21,7 @@ const rowSelection = {
       name: record.clientName,
    }),
 };
+
 const ContactsList = () => {
 
    const [form] = Form.useForm();
@@ -40,7 +42,7 @@ const ContactsList = () => {
       })
    }, [contacts])
 
-   const columns = [
+   const columns = useMemo(() => ([
       {
          title: 'Client ID',
          dataIndex: 'clientId',
@@ -137,11 +139,11 @@ const ContactsList = () => {
                )
          },
       },
-   ];
+   ]), []);
 
    // мержим необходимые данные для редактирования внутри таблицы (согласно доке Ant Design)
 
-   const mergedColumns = columns.map((col) => {
+   const mergedColumns = useMemo(() => columns.map((col) => {
       if (!col.editable) {
          return col;
       }
@@ -155,24 +157,24 @@ const ContactsList = () => {
             editing: isEditing(record),
          }),
       };
-   });
+   }), [columns]);
 
    // Функционал для Actions
 
-   const edit = (record: Partial<DataType>) => {
+   const edit = useCallback((record: Partial<DataType>) => {
       form.setFieldsValue({ ...record });
       setEditingKey(record.key);
-   };
+   }, [])
 
-   const cancel = () => {
+   const cancel = useCallback(() => {
       setEditingKey(undefined);
-   };
+   }, []);
 
-   const onDeleteContact = (id: number) => {
+   const onDeleteContact = useCallback((id: number) => {
       dispatch(deleteContact(id))
-   };
+   }, []);
 
-   const save = async (key: React.Key) => {
+   const save = useCallback(async (key: React.Key) => {
       const contactKey = key as number // временно
       try {
          const row = (await form.validateFields()) as IContact;
@@ -181,10 +183,10 @@ const ContactsList = () => {
       } catch (errInfo) {
          console.log('Validate Failed:', errInfo);
       }
-   };
+   }, []);
 
    return (
-      <Space direction='vertical' style={{ padding: '12px', width: '100%' }} size='large'>
+      <Space direction='vertical' className='contacts-list-wrapper' size='large'>
          <div className='contacts-list-subheader'>
             <Text>Total Contacts</Text>
             <AddContact />

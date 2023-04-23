@@ -1,8 +1,9 @@
 import { Button, Form, Input } from 'antd';
-import { useAppDispatch } from '../redux/hooks';
-import { setCredentials } from '../redux/reducers/authReducer';
-import { IUserCredentials } from '../interfaces/IUserCredentials';
+import { useAppDispatch } from '../../redux/hooks';
+import { setCredentials } from '../../redux/reducers/authReducer';
+import { IUserCredentials } from '../../interfaces/IUserCredentials';
 import { useNavigate } from 'react-router-dom';
+import './loginForm.css'
 
 const LoginForm = () => {
 
@@ -12,7 +13,7 @@ const LoginForm = () => {
    return (
       <Form
          name="login"
-         style={{ width: 500 }}
+         className='.loginForm'
          initialValues={{ remember: true }}
          onFinish={(values: IUserCredentials) => {
             dispatch(setCredentials(values))
@@ -37,7 +38,7 @@ const LoginForm = () => {
             <Input.Password />
          </Form.Item>
          <Form.Item>
-            <Button type="primary" htmlType="submit" style={{ boxShadow: 'none' }}>
+            <Button type="primary" htmlType="submit" className='.box_shadow_fix'>
                SIGN IN
             </Button>
          </Form.Item>

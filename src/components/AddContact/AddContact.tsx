@@ -1,10 +1,11 @@
 import { PlusOutlined } from '@ant-design/icons';
 import { DatePicker, Form, Input, InputNumber, Modal } from 'antd';
 import { useState, useCallback } from 'react'
-import { IContact } from '../interfaces/IContact';
-import { useAppDispatch } from '../redux/hooks';
-import { addContact } from '../redux/reducers/contactsReducer';
+import { IContact } from '../../interfaces/IContact';
+import { useAppDispatch } from '../../redux/hooks';
+import { addContact } from '../../redux/reducers/contactsReducer';
 import dayjs from 'dayjs';
+import './addContact.css'
 
 const AddContact = () => {
 

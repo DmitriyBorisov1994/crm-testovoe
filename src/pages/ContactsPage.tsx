@@ -1,10 +1,10 @@
 import { Layout, Divider, Button, Modal } from 'antd';
-import AppHeader from '../components/AppHeader';
-import AppSidebar from '../components/AppSidebar';
+import AppHeader from '../components/AppHeader/AppHeader';
+import AppSidebar from '../components/AppSidebar/AppSidebar';
 import { LogoutOutlined } from '@ant-design/icons';
 import ContactsList from '../components/ContactsList/ContactsList';
 import { useState, useCallback } from 'react';
-import AddContact from '../components/AddContact';
+import AddContact from '../components/AddContact/AddContact';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { logOut } from '../redux/reducers/authReducer';
 import { selectLogin } from '../redux/selectors/authSelectors';

@@ -1,0 +1,14 @@
+.avatar-large-text {
+   font-size: 22px;
+}
+.avatar-small-text {
+   font-size: 13px;
+}
+.avatar-text-height-fix {
+   height: 20px !important;
+   line-height: 20px !important;
+}
+.avatar-text-wrapper {
+   display: flex;
+   flex-direction: column;
+}

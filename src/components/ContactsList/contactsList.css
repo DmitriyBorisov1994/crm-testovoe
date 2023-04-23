@@ -1,0 +1,8 @@
+.contacts-list-subheader {
+   display: flex;
+   justify-content: space-between;
+}
+.contacts-list-wrapper {
+   padding: 12px;
+   width: 100%;
+}

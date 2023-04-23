@@ -10,4 +10,4 @@ export interface IContact {
    companyAddress: string
 }
 
-export type IContactFieldNames = 'clientId' | 'clientName' | 'trn_ppsn' | 'yearEnd' | 'ard' | 'companyNumber' | 'companyAddress' | 'email' | 'phoneNumber'
+export type IContactFieldNames = keyof IContact

@@ -1,5 +1,6 @@
 import { Input, Avatar, Typography, Space } from 'antd';
 import { UserOutlined, SearchOutlined } from '@ant-design/icons';
+import './appHeader.css'
 
 const { Text } = Typography
 
